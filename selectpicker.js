@@ -43,6 +43,7 @@
                 //如果禁用
                 if(select.is(":disabled"))
                     vars.selectWrapper.addClass("select_disabled");
+                //如果只读
                 if(select.is("[readOnly]"))
                     vars.selectWrapper.addClass("select_readOnly");
                 //如果没有选项return
@@ -320,7 +321,7 @@
             },
             val:function(){
 
-                return vars.isComplete? vars.hiddenInput.val():select.val();
+                return vars.isComplete? vars.hiddenInput.val():(vars.isCascade?select.val():(this.isSelected()?vars.ulContainer.find("[data-selected=selected]").data("value"):""));
             },
             text:function(){
                 return vars.isInput ? vars.selectWrapper.find(".display").val():vars.selectWrapper.find(".display").text();
@@ -352,7 +353,7 @@
             },
             setByVal:function(value){
                 var target = vars.ulContainer.find("[data-value="+value+"]");
-                target&&target.click();
+                target&&methods.setSelected.apply(target);
             },
             setByText:function(text){
                 var list = vars.ulContainer.find("li");
@@ -477,7 +478,7 @@
                             case "focus":selectPicker.focus.apply(this,[argus[1]]);break;
                             case "change":selectPicker.change.apply(this,[argus[1]]);break;
                             case "setByIndex":selectPicker.setByIndex(argus[1]);break;
-                            case "setByVal":selectPicker.setByText(argus[1]);break;
+                            case "setByVal":selectPicker.setByVal(argus[1]);break;
                             case "setByText":selectPicker.setByText(argus[1]);break;
                             case "updateStyle":selectPicker.updateStyle(argus[1]);break;
                             case "reset":selectPicker.reset();break;
