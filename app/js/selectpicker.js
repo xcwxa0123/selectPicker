@@ -284,7 +284,7 @@
                     substr ? (substr = substr.replace('\'', '\\"'), substr.match(reExp) ? (html += substr) : (isQuotes ? (  html += 'tpl+=\'' + substr + '\';') : (  html += 'tpl+=' + substr + ';'))) : (html += "");// jshint ignore:line
                 }
 
-                while (!!(match = re.exec(new RegExp(template)))) {
+                while (!!(match = re.exec(template))) {
                     add(template.slice(cursor, match.index), true);
                     add(match[1], false);
                     cursor = match.index + match[0].length;
@@ -445,7 +445,7 @@
         "classPrefix": "",
         "itemHeight": "40",
         "displayHeight": undefined,
-        "width": undefined,
+        "width": 300,
         "isCascade": false,
         "isComplete": true,
         "defaults": 0,

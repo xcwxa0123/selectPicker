@@ -97,7 +97,14 @@ module.exports = function(grunt){
             },
             test: {
                 options: {
-                    base: '<%= config.test %>'
+                    middleware:function(connect,options){
+                        return [
+                            connect.static(vars.src),
+                            connect().use('/bower_components', connect.static('./bower_components')),
+                            connect.static(vars.test),
+                            connect.directory(vars.test)
+                        ];
+                    }
                 }
             }
         }

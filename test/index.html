@@ -3,14 +3,27 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="/css/selectPicker.css"/>
+<link rel="stylesheet" href="/css/selectPicker.css"/>
 </head>
 <body>
+
+<select  id="demo" class="demo_selectPicker">
+    <option value="001">柴</option>
+    <option value="002">米</option>
+    <option value="003">油</option>
+    <option value="004">盐</option>
+    <option value="005">酱</option>
+</select>
+
 
 <!-- bower:js -->
 <script src="/bower_components/jquery/dist/jquery.js"></script>
 <!-- endbower -->
 
+
 <script src="/js/selectPicker.js"></script>
+<script>
+    $("#demo").selectPicker();
+</script>
 </body>
 </html>
