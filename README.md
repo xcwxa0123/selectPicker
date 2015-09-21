@@ -1,7 +1,4 @@
-selectPicker
-============
-
-自给自足
-test sourceTree
-test userName and pass
+***
+模拟下拉列表组件
+***
  
